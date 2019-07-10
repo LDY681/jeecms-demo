@@ -39,7 +39,6 @@
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/t/cms/www/default/channel/news_tzgg.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="1610">
               <caret line="46" selection-start-line="46" selection-end-line="69" selection-end-column="10" />
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -132,17 +131,16 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-66" />
-    <option name="y" value="234" />
-    <option name="width" value="1940" />
-    <option name="height" value="1056" />
+    <option name="x" value="157" />
+    <option name="y" value="436" />
+    <option name="width" value="974" />
+    <option name="height" value="559" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -279,11 +277,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/财通证券/jeecmsv9.3-ROOT" />
+    <property name="last_opened_file_path" value="C:/esanguo" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.HTML" />
@@ -329,11 +328,12 @@
       <workItem from="1562548609896" duration="21101000" />
       <workItem from="1562635075708" duration="23154000" />
       <workItem from="1562719131840" duration="15476000" />
+      <workItem from="1562758159671" duration="23000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111285000" />
+    <option name="totallyTimeSpent" value="111308000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -656,26 +656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/t/cms/www/default/channel/news_tzgg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="46" selection-start-line="46" selection-end-line="69" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/t/cms/www/default/channel/news_tzbd.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -701,6 +681,26 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/t/cms/www/default/channel/news_tzgg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1610">
+          <caret line="46" selection-start-line="46" selection-end-line="69" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
