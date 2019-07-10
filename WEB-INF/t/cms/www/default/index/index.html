@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>首页 - ${site.name} - Powered by JEECMS</title>
+<meta http-equiv="keywords" content="${site.keywords!}"/>
+<meta http-equiv="description" content="${site.description!}"/>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript" src="/${res}/js/jquery.SuperSlide.js"></script>
+<link type="text/css" rel="stylesheet" href="/${res}/css/home.css" />
+<!--[if lt IE 9]> 
+<script src="/${res}/js/html5shiv.min.js"></script>
+<script src="/${res}/js/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript">
+$(function() {
+	Cms.siteFlow("${base}", location.href, document.referrer, "${site.config.flowSwitch?string}");
+	$.cookie("_site_id_cookie","${site.id!}",{path: '${base}' });
+});
+</script>
+
+</head>
+
+<body class="home">
+[#include "../include/header.html"/]
+
+<div class="container clearfix">
+
+<!--顶部图片-->
+<img src="/${res}/images/topMountain.png" style="z-index: -1; position:absolute;left:0;top:94px; width:100%; height:626px;"/>
+<img src="/${res}/images/bird.png" style="position:absolute;left:1399px;top:242px; height:89px;"/>
+<img src="/${res}/images/boat.png" style="position:absolute;left:1398px;top:503px; height:81px;"/>
+<img src="/${res}/images/logo2.png" style="position:absolute; left: 354px; top:271px; height:299px;"/>
+<!--顶部banner-->
+<div class="home-banner" id="section-focus-pic" style="position: absolute; left: 549px;top: 258px;background-color:rgba(255,203,203,1);box-shadow:0px 12px 18px 0px rgba(0,0,0,0.17);border-radius:10px;">
+  <div class="bd" data-scro="list">
+    [@cms_content_list typeId='2' recommend='1' channelId='94' orderBy='4' titLen='22' channelOption='0' dateFormat='yyyy-MM-dd']
+    <ul>
+      [#list tag_list as a]
+      <li class="item" [#if a_index<1]style="left:0;"[/#if]><a href="${a.url}" target="_blank"><img src="${a.typeImg!}"><div class="banner-title"><i class="Cpic"></i><span>[@text_cut s=a.title len=titLen /]</span></div></a></li>
+      [/#list]
+    </ul>
+    [/@cms_content_list]
+  </div>
+  <div class="hd" data-scro="controler">
+    [@cms_content_list typeId='2' recommend='1' channelId='94' orderBy='4' titLen='22' channelOption='0' dateFormat='yyyy-MM-dd']
+    [#list tag_list as a]
+    <b [#if a_index<1]class="down"[/#if]>${a_index+1}</b>
+    [/#list]
+    <span>/${tag_list?size}</span>
+    [/@cms_content_list]
+  </div>
+  <div class="controler2" data-scro="controler2">
+    <a href="javascript:;" class="prev"><i></i></a>
+    <a href="javascript:;" class="next"><i></i></a>
+  </div>
+  <script type="text/javascript" src="/${res}/js/script.js"></script>
+</div>
+
+<!--投资公告图片-->
+  <div style="position:absolute; left: 396px; top: 778px; width:629px; height: 1px; background-color:#999999"></div>
+  <div style="position:absolute; left: 1036px; top: 764px; width:40px;height:28px;font-size:20px;font-family:STSongti-SC-Regular;font-weight:400;color:rgba(153,153,153,1);line-height:28px;"><a href="${base}/tzgg/index.jhtml">更多</a></div>
+  <img src="/${res}/images/threePagoda.png" style="position:absolute; left: 1052px; top: 778px; width:868px; height: 584px;"/>
+  <img src="/${res}/images/投资公告文字.png" style="position:absolute; left: 1144px; top: 801px; width:393px; height: 233px;"/>
+  <!--投资公告内容-->
+  <div style="position:absolute; left: 397px; top: 802px; width: 664px; height: 433px;">
+
+      <!--typeId = 4 = 头条-->
+      [@cms_content_list typeId='4' count='1' titLen='25' channelId='75' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
+      [#list tag_list as a]
+        <div class="tzgg-top-news"><a href="${a.url}" target="_blank"><span class="topText">[置顶]</span>[@text_cut s=a.title len=titLen append='...'/]<span class="subText">${a.date?string(dateFormat)}</span></a></div>
+        <div class="newsDescription"><span>[@text_cut s=a.description! len='55' append='...' /]</span><span class="moreDetail">[详情]</span></div>
+      [/#list]
+      [/@cms_content_list]
+
+      <div class="tzgg-list">
+        [@cms_content_list typeId='1,2,3' count='18' orderBy='4' channelId='75' channelOption='1' dateFormat='yyyy-MM-dd']
+        <ul>
+          [#list tag_list as a]
+            [#if a_index < 2]
+              <li><a href="${a.url}" target="_blank" [#if (a_index)%6=0]class="bold"[/#if]>[@text_cut s=a.title len=28 append='...'/]</a><span class="subText">${a.date?string(dateFormat)}</span></li>
+              <div class="newsDescription"><span>[@text_cut s=a.description! len='55' append='...' /]</span><span class="moreDetail">[详情]</span></div>
+            [/#if]
+          [/#list]
+        </ul>
+        [/@cms_content_list]
+      </div>
+
+  </div>
+
+  <!--投资宝典图片-->
+  <img src="/${res}/images/投资宝典文字.png" style="z-index:1; position:absolute; left: 400px; top: 1419px; width:383px; height: 243px;"/>
+  <img src="/${res}/images/雷峰塔 .png" style="position:absolute; left: 0; top: 1505px; width:1079px; height: 390px;"/>
+  <!--投资宝典内容-->
+
+  <!--财富书院图片-->
+  <div style="position:absolute; left: 371px; top: 2004px; width:610px; height: 1px; background-color:#999999"></div>
+  <div style="position:absolute; left: 989px; top: 1990px; width:40px;height:28px;font-size:20px;font-family:STSongti-SC-Regular;font-weight:400;color:rgba(153,153,153,1);line-height:28px;">更多</div>
+  <img src="/${res}/images/财富书院文字.png" style="z-index:1; position:absolute; left: 1143px; top: 1962px; width:397px; height: 240px;"/>
+  <img src="/${res}/images/苏堤.png" style="position:absolute; left: 1013px; top: 1995px; width:907px; height:603px;"/>
+  <!--财富书院内容-->
+
+  <!--投教活动图片-->
+  <img src="/${res}/images/投教活动文字.png" style="z-index:1; position:absolute; left: 409px; top: 2633px; width:379px; height: 236px;"/>
+  <img src="/${res}/images/花港观鱼.png" style="position:absolute; left: 0px; top: 2681px; width:978px; height:636px;"/>
+  <!--投教活动内容-->
+
+  <!--投资者体验图片-->
+  <img src="/${res}/images/投资者体验文字.png" style="z-index:1; position:absolute; left: 1130px; top: 3302px; width:396px; height:236px;"/>
+  <img src="/${res}/images/断桥.png" style="position:absolute; left: 887px; top: 3457px; width:1033px; height: 428px;"/>
+  <!--投资者体验内容-->
+
+  <!--他山之石图片-->
+  <img src="/${res}/images/他山之石文字.png" style="z-index:1; position:absolute; left: 422px; top: 3983px; width:364px; height:268px;"/>
+  <img src="/${res}/images/他山之石插画.png" style="position:absolute; left: 0px; top: 3966px; width:910px; height: 484px;"/>
+  <!--他山之石内容-->
+
+</div>
+
+<div class="right-fixed">
+[#include "../include/right-fixed.html"/]
+</div>
+
+<div style="position:absolute; left: 0; top: 4512px; width: 100%;">
+  <img style="width: 100%;" src="./${res}/images/bottomFlower.png"/>
+  [#include "../include/footer.html"/]
+</div>
+</body>
+</html>

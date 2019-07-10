@@ -1,0 +1,38 @@
+<div>
+  <ul>
+    <li class="survey">
+      <div class="surveyLogo"><img src="/${res}/images/满意度调查.png"></div>
+    </li>
+
+    <li class="support">
+      <div class="supportLogo"><img src="/${res}/images/在线客服.png"></div>
+    </li>
+
+    <li class="report">
+      <div class="reportLogo"><img src="/${res}/images/意见反馈.png"></div>
+    </li>
+    <li class="backtop">
+      <div class="backtopLogo"><img src="/${res}/images/返回顶部.png"></div>
+    </li>
+  </ul>
+  <script type="text/javascript">
+	$(function(){
+		var $body = $(document.body);
+		var $bottomTools = $('.right-fixed');
+			$(window).scroll(function () {
+				var scrollHeight = $(document).height();
+				var scrollTop = $(window).scrollTop();
+				scrollTop > 50 ? $(".back-top").slideDown(300).css("display","block") : $(".back-top").slideUp(300);			
+			});
+			$('.back-top').click(function (e) {
+				e.preventDefault();
+				$('html,body').animate({ scrollTop:0});
+			});
+      $('.backtop').click(function (e) {
+          e.preventDefault();
+          $('html,body').animate({ scrollTop:0});
+      });
+			
+	});
+  </script>
+</div>

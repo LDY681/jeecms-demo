@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="keywords" content="${channel.keywords!}"/>
+  <meta http-equiv="description" content="${channel.description!}"/>
+  <title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+  <script src="${resSys}/jquery.js" type="text/javascript"></script>
+  <script src="${resSys}/front.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/${res}/js/jquery.SuperSlide.js"></script>
+  <script src="/${res}/js/jquery-3.4.1.min.js"></script>
+  <link type="text/css" rel="stylesheet" href="/${res}/css/home.css" />
+
+  <script>
+      function redirect(url){
+          window.location = url;
+      }
+  </script>
+
+  <script>
+      function showDropDown(id) {
+          var x = document.getElementById(id);
+          if (x.style.display === "none"){
+              x.style.display = "block";
+          }else{
+              x.style.display = "none";
+          }
+      }
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="/${res}/js/html5shiv.min.js"></script>
+  <script src="/${res}/js/respond.min.js"></script>
+
+  <![endif]-->
+  <script type="text/javascript">
+      $(function() {
+          Cms.channelViewCount("${base}","${channel.id}");
+          Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwitch?string}");
+      });
+  </script>
+</head>
+
+<body class="index">
+[#include "../include/header.html"/]
+<div class="container clearfix">
+  <!--  投资公告图片-->
+  <img src="/${res}/images/投资宝典logo.png" style="position:absolute;left:398px;top:176px; width:134px; height:255px"/>
+  <img src="/${res}/images/雷峰塔 .png" style="z-index: -1;position:absolute;left:497px;top:85px; width:1089px; height:390px"/>
+
+<!--  accordion-->
+  <div style="position:absolute;left:379px;top:430px; width:173px">
+    <button onclick="showDropDown('JCZSdropDown');" style="top: 0px; height:48px;"><img src="/${res}/images/基础知识.png"/></button>
+    <div id="JCZSdropDown" style="display: block;">
+      <ul class="channelAccordion">
+        [@cms_channel_list parentId='99' orderBy='4']
+        [#list tag_list as c]
+          <li><a href="${c.url}">${c.name}</a></li>
+        [/#list]
+        [/@cms_channel_list]
+      </ul>
+    </div>
+
+    <button onclick="showDropDown('CZZSdropDown');" style="margin-top: 20px; height:48px;"><img src="/${res}/images/成长知识.png" /></button>
+    <div id="CZZSdropDown" style="display: none;">
+      <ul class="channelAccordion">
+        <li>股票</li>
+        <li>基金</li>
+        <li>债券</li>
+        <li>创业板</li>
+        <li>地方债</li>
+      </ul>
+    </div>
+    <button onclick="showDropDown('GJZSdropDown');" style="margin-top: 20px; height:48px;"><img src="/${res}/images/高级知识.png" /></button>
+    <div id="GJZSdropDown" style="display: none;">
+      <ul class="channelAccordion">
+        <li>股票</li>
+        <li>基金</li>
+        <li>债券</li>
+        <li>创业板</li>
+        <li>地方债</li>
+      </ul>
+    </div>
+    <button onclick="showDropDown('ZSCSdropDown');" style="margin-top: 20px; height:48px;"><img src="/${res}/images/知识测试.png" /></button>
+    <div id="ZSCSdropDown" style="display: none;">
+      <ul class="channelAccordion">
+        <li>股票</li>
+        <li>基金</li>
+        <li>债券</li>
+        <li>创业板</li>
+        <li>地方债</li>
+      </ul>
+    </div>
+    <button onclick="showDropDown('TJZBdropDown');" style="margin-top: 20px; height:48px;"><img src="/${res}/images/投教展播.png"/></button>
+    <div id="TJZBdropDown" style="display: none;">
+      <ul class="channelAccordion">
+        <li>股票</li>
+        <li>基金</li>
+        <li>债券</li>
+        <li>创业板</li>
+        <li>地方债</li>
+      </ul>
+    </div>
+  </div>
+
+
+<!--    <button onclick="showYWGG();"><img src="/${res}/images/业务公告.png" style="position:absolute;left:379px;top:498px; width:173px; height:48px;"/></button>-->
+  </div>
+
+
+  <!--  投资公告新闻框-->
+  <div class="newsFrame">
+
+    <div id="fxts" style="display:block;">
+      <p class="newsTitle">${channel.name}</p>
+      <div style="margin: 0 31px 44px 31px;">
+        <!--typeId = 4 = 头条-->
+        [@cms_content_list typeId='4' count='1' titLen='25' channelId='${channel.id}' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
+        [#list tag_list as a]
+        <div class="newsFrameText"><a href="${a.url}" target="_blank"><span class="newsFrameTopText">【置顶】</span>[@text_cut s=a.title len=titLen append='...'/]<span class="newsFrameSubText">${a.date?string(dateFormat)}</span></a></div>
+        <hr class="newsHr">
+        [/#list]
+        [/@cms_content_list]
+
+        <div class="tzgg-list">
+          [@cms_content_page count='5' orderBy='4' channelId='${channel.id}' channelOption='1' dateFormat='yyyy-MM-dd HH-mm']
+          <ul>
+            [#list tag_pagination.list as a]
+            <li style="height: 35px; margin-top: 0; margin-bottom: 0;"><a class="newsFrameText" href="${a.url}" target="_blank" [#if (a_index)%6=0]class="bold"[/#if]>[@text_cut s=a.title len=28 append='...'/]</a><span class="newsFrameSubText">${a.date?string(dateFormat)}</span></li>
+            <hr class="newsHr">
+            [/#list]
+          </ul>
+          <div class="pagination">[#include "../include/page.html"/]</div>
+          [/@cms_content_page]
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="right-fixed">
+  [#include "../include/right-fixed.html"/]
+</div>
+
+<div style="position:absolute; left: 0px; top: 1122px; width: 100%;">
+  [#include "../include/footer.html"/]
+</div>
+</body>
+</html>

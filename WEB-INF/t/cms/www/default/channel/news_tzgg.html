@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="keywords" content="${channel.keywords!}"/>
+<meta http-equiv="description" content="${channel.description!}"/>
+<title>${channel.title!channel.name} - ${site.name} - Powered by JEECMS</title>
+<script src="${resSys}/jquery.js" type="text/javascript"></script>
+<script src="${resSys}/front.js" type="text/javascript"></script>
+<script type="text/javascript" src="/${res}/js/jquery.SuperSlide.js"></script>
+<script src="/${res}/js/jquery-3.4.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="/${res}/css/home.css" />
+
+  <script>
+    function showYWGG(){
+        window.location = "http://localhost:8080/ywgg/index.jhtml";
+    }
+    function showFXTS(){
+        window.location = "http://localhost:8080/fxts/index.jhtml";
+    }
+  </script>
+<!--[if lt IE 9]>
+<script src="/${res}/js/html5shiv.min.js"></script>
+<script src="/${res}/js/respond.min.js"></script>
+
+<![endif]-->
+<script type="text/javascript">
+    $(function() {
+        Cms.channelViewCount("${base}","${channel.id}");
+        Cms.siteFlow("${base}", location.href, document.referrer,"${site.config.flowSwitch?string}");
+    });
+</script>
+</head>
+
+<body class="index">
+[#include "../include/header.html"/]
+<div class="container clearfix">
+<!--  投资公告图片-->
+  <img src="/${res}/images/投资公告logo.png" style="position:absolute;left:397px;top:176px; width:139px; height:233px;"/>
+  <img src="/${res}/images/三潭印月.png" style="z-index: -1;position:absolute;left:519px;top:0px; width:937px; height:584px;"/>
+  <button onclick="showFXTS();"><img src="/${res}/images/onClick.png" style="position:absolute;left:379px;top:430px; width:173px; height:48px;"/></button>
+  <button onclick="showYWGG();"><img src="/${res}/images/业务公告.png" style="position:absolute;left:379px;top:498px; width:173px; height:48px;"/></button>
+<!--  投资公告新闻框-->
+  <div class="newsFrame">
+
+    <div id="fxts" style="display:none;">
+      <p class="newsTitle">风险提示</p>
+      <div style="margin: 0 31px 44px 31px;">
+        <!--typeId = 4 = 头条-->
+        [@cms_content_list typeId='4' count='1' titLen='25' channelId='96' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
+        [#list tag_list as a]
+        <div class="newsFrameText"><a href="${a.url}" target="_blank"><span class="newsFrameTopText">【置顶】</span>[@text_cut s=a.title len=titLen append='...'/]<span class="newsFrameSubText">${a.date?string(dateFormat)}</span></a></div>
+        <hr class="newsHr">
+        [/#list]
+        [/@cms_content_list]
+
+        <div class="tzgg-list">
+          [@cms_content_page count='5' orderBy='4' channelId='96' channelOption='1' dateFormat='yyyy-MM-dd HH-mm']
+          <ul>
+            [#list tag_pagination.list as a]
+            <li style="height: 35px; margin-top: 0; margin-bottom: 0;"><a class="newsFrameText" href="${a.url}" target="_blank" [#if (a_index)%6=0]class="bold"[/#if]>[@text_cut s=a.title len=28 append='...'/]</a><span class="newsFrameSubText">${a.date?string(dateFormat)}</span></li>
+            <hr class="newsHr">
+            [/#list]
+          </ul>
+          <div class="pagination">[#include "../include/page.html"/]</div>
+          [/@cms_content_page]
+        </div>
+      </div>
+    </div>
+
+    <div id="ywgg" style="display:none;">
+      <p class="newsTitle">业务公告</p>
+      <div style="margin: 0 31px 44px 31px;">
+        <!--typeId = 4 = 头条-->
+        [@cms_content_list typeId='4' count='1' titLen='25' channelId='95' orderBy='4' channelOption='1' dateFormat='yyyy-MM-dd']
+        [#list tag_list as a]
+        <div class="newsFrameText"><a href="${a.url}" target="_blank"><span class="newsFrameTopText">【置顶】</span>[@text_cut s=a.title len=titLen append='...'/]<span class="newsFrameSubText">${a.date?string(dateFormat)}</span></a></div>
+        <hr class="newsHr">
+        [/#list]
+        [/@cms_content_list]
+
+        <div class="tzgg-list">
+          [@cms_content_page count='5' orderBy='4' channelId='95' channelOption='1' dateFormat='yyyy-MM-dd HH-mm']
+          <ul>
+            [#list tag_pagination.list as a]
+            <li style="height: 35px; margin-top: 0; margin-bottom: 0;"><a class="newsFrameText" href="${a.url}" target="_blank" [#if (a_index)%6=0]class="bold"[/#if]>[@text_cut s=a.title len=28 append='...'/]</a><span class="newsFrameSubText">${a.date?string(dateFormat)}</span></li>
+            <hr class="newsHr">
+            [/#list]
+          </ul>
+          <div class="pagination">[#include "../include/page.html"/]</div>
+          [/@cms_content_page]
+        </div>
+      </div>
+    </div>
+
+    <script>
+      console.log("进入script");
+      console.log("window.location.href.indexOf(fxts)");
+      console.log(window.location.href.indexOf("fxts"));
+      console.log("window.location.href.indexOf(ywgg)");
+      console.log(window.location.href.indexOf("ywgg"));
+      if (window.location.href.indexOf("tzgg")!== -1){
+          document.getElementById("fxts").style.display = "block";
+      }
+        if (window.location.href.indexOf("fxts")!== -1){
+            document.getElementById("fxts").style.display = "block";
+        }
+        if (window.location.href.indexOf("ywgg")!== -1){
+            document.getElementById("ywgg").style.display = "block";
+        }
+    </script>
+  </div>
+</div>
+
+<div class="right-fixed">
+  [#include "../include/right-fixed.html"/]
+</div>
+
+<div style="position:absolute; left: 0px; top: 1122px; width: 100%;">
+[#include "../include/footer.html"/]
+</div>
+</body>
+</html>

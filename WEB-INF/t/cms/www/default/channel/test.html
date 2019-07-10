@@ -1,0 +1,56 @@
+<ul>
+    [@cms_channel_list]  id=1
+        <li><a href="${base}/"><span>网站首页</span></a></li>
+
+        [#list tag_list as c] id=2
+
+            [@cms_channel_list parentId=c.id] id=3
+                [#if tag_list?size>0]
+                    <li class="havechild">
+                [#else]
+                    <li>
+                [/#if]
+            [/@cms_channel_list] id=3
+
+            <a href="${c.url}" target="_self"><span>${c.name}</span></a>
+
+            [@cms_channel_list parentId=c.id]
+                [#if tag_list?size>0]
+                    <ul>
+                        [@cms_channel_list parentId=c.id]
+                            [#list tag_list as c1]
+                                [@cms_channel_list parentId=c1.id]
+                                    [#if tag_list?size>0]
+                                        <li class="havesubchild">
+                                    [#else]
+                                        <li>
+                                    [/#if]
+                                [/@cms_channel_list]
+
+                                    <a href="${c1.url}">${c1.name}</a>
+
+                                    [@cms_channel_list parentId=c1.id]
+                                        [#if tag_list?size>0]
+                                            <ul>
+                                            [@cms_channel_list parentId=c1.id]
+                                                [#list tag_list as c2]
+                                                    <li><a href="${c2.url}">${c2.name}</a></li>
+                                                [/#list]
+                                            [/@cms_channel_list]
+                                             </ul>
+                                        [/#if]
+                                    [/@cms_channel_list]
+
+                                </li>
+                                [/#list]
+
+                        [/@cms_channel_list]
+                    </ul>
+
+                    [/#if]
+                [/@cms_channel_list]
+            </li>
+        [/#list] id=2
+
+    [/@cms_channel_list]    id=1
+</ul>

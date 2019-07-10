@@ -1,0 +1,17 @@
+<div>
+    <div class="newestTitle"><div class="newestTitleText"><a>热门话题</a></div></div>
+
+  <div class="newestTextContainer">
+    [@cms_content_list count='3' orderBy='2' channelId='75' channelOption='1' dateFormat='yyyy-MM-dd' ]
+    [#list tag_list as a]
+      <div [#if a_index<1]style="border-top:none;"[/#if]>
+        <div class="newestTextRow"><a href="${a.url}" target="_blank">[@text_cut s=a.title len='50' append='...' /] </a></div>
+        <div class="newestSubTextRow">${a.date?string(dateFormat)} <i class="fas fa-eye"></i> ${a.contentCount.views!}</div>
+
+        <div style="margin-top: 16px; margin-left: 50%; transform: translateX(-50%);width:303px; height: 1px; background-color:#D8D8D8"></div>
+      </div>
+      [/#list]
+  [/@cms_content_list]
+
+  </div>
+</div>

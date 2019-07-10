@@ -1,0 +1,123 @@
+<style>
+  .channel{
+    font-size:20px;
+    font-family:STSongti-SC-Bold;
+    font-weight:bold;
+    line-height:28px;
+    height:28px;
+    color:#666666;
+  }
+  .gold{
+    color:#BF9707;
+  }
+  .subtext {
+    height:17px;
+    font-size:12px;
+    font-family:PingFangSC-Regular;
+    font-weight:400;
+    color:rgba(191,151,7,1);
+    line-height:17px;
+  }
+
+</style>
+<nav class="nav">
+     [@cms_channel_list]
+      <ul class="menu">
+<!--如果不是栏目的导航(主页导航)-->
+     [#if !channel??]     
+      <li style="position:relative; width: 40px;"><a class="gold channel" Href="http://localhost:8080">首页</a></li>
+      [#list tag_list as c]
+        [#switch c_index]
+          [#case 0]
+           <li style="position:relative; margin-left: 36px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#case 1]
+            <li style="position:relative; margin-left: 53px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#case 2]
+            <li style="position:relative; margin-left: 53px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#case 3]
+            <li style="position:relative; margin-left: 37px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#case 4]
+            <li style="position:relative; margin-left: 30px; width: 100px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#case 4]
+            <li style="position:relative; margin-left: 48px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+          [#break]
+          [#default]
+            <li style="position:relative; margin-left: 30px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+        [/#switch]
+      [/#list]
+        <span class="gold subtext" style="position:absolute; left:2px; top:28px; width: 37px;"> HOME<span>
+        <span class="subtext" style="position:absolute; left:69px; top:0; width: 92px;">OFFICIAL NEWS<span>
+        <span class="subtext" style="position:absolute; left:122px; top:0; width: 113px;">KNOWLEDGE BASE<span>
+        <span class="subtext" style="position:absolute; left:143px; top:0; width: 93px;">WEALTH CLASS<span>
+        <span class="subtext" style="position:absolute; left:137px; top:0; width: 53px;">ACTIVITY<span>
+        <span class="subtext" style="position:absolute; left:109px; top:0; width: 75px;">EXPERIENCE<span>
+        <span class="subtext" style="position:absolute; left:117px; top:0; width: 117px;">EXCELLENT FRIEND<span>
+     [#else]
+          <li style="position:relative; width: 40px;"><a class="channel" Href="http://localhost:8080">首页</a></li>
+      [#list tag_list as c]
+        [#switch c_index]
+          [#case 0]
+            [#if channel??&&channel.id==c.id]
+              <li style="position:relative; margin-left: 36px; width: 80px;"><a class="channel gold" href="${c.url}">${c.name}</a></li>
+            [#else]
+              <li style="position:relative; margin-left: 36px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#case 1]
+            [#if channel??&&channel.id==c.id]
+               <li style="position:relative; margin-left: 53px; width: 80px;"><a class="gold channel" href="${c.url}">${c.name}</a></li>
+            [#else]
+               <li style="position:relative; margin-left: 53px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#case 2]
+            [#if channel??&&channel.id==c.id]
+              <li style="position:relative; margin-left: 53px; width: 80px;"><a class="gold channel" href="${c.url}">${c.name}</a></li>
+               [#else]
+               <li style="position:relative; margin-left: 53px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#case 3]
+            [#if channel??&&channel.id==c.id]
+              <li style="position:relative; margin-left: 37px; width: 80px;"><a class="gold channel" href="${c.url}">${c.name}</a></li>
+            [#else]
+              <li style="position:relative; margin-left: 37px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#case 4]
+            [#if channel??&&channel.id==c.id]
+              <li style="position:relative; margin-left: 30px; width: 100px;"><a class="gold channel" href="${c.url}">${c.name}</a></li>
+            [#else]
+              <li style="position:relative; margin-left: 30px; width: 100px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#case 4]
+            [#if channel??&&channel.id==c.id]
+              <li style="position:relative; margin-left: 48px; width: 80px;"><a class="gold channel" href="${c.url}">${c.name}</a></li>
+            [#else]
+              <li style="position:relative; margin-left: 48px; width: 80px;"><a class="channel" href="${c.url}">${c.name}</a></li>
+            [/#if]
+          [#break]
+          [#default]
+            <li style="position:relative; margin-left: 30px; width: 80px;" [#if channel??&&channel.id==c.id]class="gold"[/#if]><a class="channel" href="${c.url}">${c.name}</a></li>
+        [/#switch]
+      [/#list]
+        <span class="subtext" style="position:absolute; left:2px; top:28px; width: 37px;">HOME<span>
+        <span id ="officialNewsSmall"  class="subtext" style="position:absolute; left:69px; top:0; width: 92px;">OFFICIAL NEWS<span>
+        <span class="subtext" style="position:absolute; left:122px; top:0; width: 113px;">KNOWLEDGE BASE<span>
+        <span class="subtext" style="position:absolute; left:143px; top:0; width: 93px;">WEALTH CLASS<span>
+        <span class="subtext" style="position:absolute; left:137px; top:0; width: 53px;">ACTIVITY<span>
+        <span class="subtext" style="position:absolute; left:109px; top:0; width: 75px;">EXPERIENCE<span>
+        <span class="subtext" style="position:absolute; left:117px; top:0; width: 117px;">EXCELLENT FRIEND<span>
+
+       [/#if]
+      </ul>
+     [/@cms_channel_list]
+
+
+    </nav>

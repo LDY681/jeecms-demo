@@ -1,0 +1,64 @@
+<link rel="stylesheet" type="text/css" href="/${res}/css/login.css" />
+<!-- 百度统计代码 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4674b425370d9f190347b297042ae0b1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+function qkeypress(){
+	var q=$("input[name=q]");
+	if(q.val().trim()!=""){
+		$("input[name=q]").autocomplete("enable");
+	}else{
+		$("input[name=q]").autocomplete("disable");
+	}
+}
+function query(){
+	$.post("${base}/createToken.jspx", {}, function(data) {
+		$("#token").val(data.token);
+		$("#searchForm").submit();
+	}, "json");
+}
+$(function() {
+	$("input[name='q']").bind('keypress',function(event){
+	    if(event.keyCode == 13)     
+	    {  
+	    	event.preventDefault();
+	    	query();
+	    }  
+	});
+});
+</script>
+
+<style>
+  ::placeholder{ /* Microsoft Edge */
+    width:24px;
+    height:20px;
+    font-size:14px;
+    letter-spacing: -2px;
+    line-height: 20px;
+    font-family:STSongti-SC-Regular;
+    font-weight:400;
+    color:rgba(109,119,139,1);
+  }
+</style>
+<header class="header rel">
+  <div class="container clearfix">
+      <a class="underLayLogo" href="${base}/"></a>
+      <a class="logo" href="${base}/"></a>
+    [#include "../include/nav.html"]
+    <div class="header-r">     
+      <div class="search" style="position:absolute;">
+        <form action="${base}/search.jspx" target="_blank" name="searchForm" id="searchForm">
+        <input type="text" name="q" value="${oldq!}" maxlength="50" autocomplete="off" class="searchCon" placeholder="搜索">
+        <input type="hidden" name="token" id="token" value="${token!}" />
+        <input type="button" value="" class="searchMenu" onclick="query()" >
+        </form>
+      </div>
+  </div>
+</header>
